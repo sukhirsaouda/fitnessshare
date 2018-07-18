@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<h1>Which activity report would you like to share with your physician</h1>
+<div>
+    <input type="checkbox" id="Exercise" name="Activity"
+           value="Exercise" checked />
+    <label for="Exercise">Exercise</label> </div>
+<div>
+    <input type="checkbox" id="Exercise" name="Activity"
+           value="Moves" checked />
+    <label for="Moves">Moves</label> </div>
+<div>
+    <input type="checkbox" id="Exercise" name="Activity"
+           value="Calorie Intake" checked />
+    <label for="Calorie Intake">Calorie Intake</label> </div>
+<div>
+    <input type="checkbox" id="Exercise" name="Activity"
+           value="Sleep Activity" checked />
+    <label for="Sleep Activity">Sleeo activity</label> </div>
+<button type="button">Share</button>
+</div>
+</div>
+<div class="popup" onclick="myFunction()">
+  <span class="popuptext" id="myPopup">Are you sure
+    Would you like to share your data from your device to Bahmni</span></div>
+<div><button type=""button">Yes</button></div>
+<div><button type=""button">No</button></div>
+
+</div>
+
+</body>
+<script>
+    function myFunction() {
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
+    }
+</script>
