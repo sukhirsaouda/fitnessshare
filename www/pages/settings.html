@@ -1,111 +1,158 @@
-<div class="page" data-name="settings">
-  <div class="navbar">
-    <div class="navbar-inner sliding">
-      <div class="title">Settings</div>
+<div class="page" data-name="">
+    <div class="navbar">
+        <div class="navbar-inner sliding">
+            <div class="title">Settings</div>
+        </div>
     </div>
-  </div>
-  <div class="page-content">
-    <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+    <div class="page-content">
+        <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
 
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
 
-      <button type="submit">Login with iOS</button>
-      <button type="submit">Login with Fitbit</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
+            <button type="submit">Login with iOS</button>
+            <button type="submit">Login with Fitbit</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+        </form>
+
+
+        <section>Bahmni Login Details</section>
+        <label>
+            <input type="text" value="https://demo.mybahmni.org/openmrs" id="bahmniUrlField" required>
+            <input type="text" placeholder="Enter Username" id="bahmniUserField" required>
+            <input type="password" placeholder="Enter Password" id="bahmniPassField" required>
+        </label>
+        <div>
+            <button type="submit" onclick="loginAndSaveBahmni()">Login to Bahmni</button>
+        </div>
+
+        <section>OpenMRS Login Details</section>
+        <label>
+            <input type="text" value="https://demo.openmrs.org/openmrs" id="omrsUrlField" required>
+            <input type="text" id="omrsUserField" placeholder="Enter Username" required>
+            <input type="password" id="omrsPassField" placeholder="Enter Password" required>
+        </label>
+        <div>
+            <button type="submit" onclick="loginAndSaveOmrs()">Login to OpenMRS</button>
+        </div>
     </div>
 
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-    </form>
-</div>
+    <style>
+        section {
+            background-color: #F8F9F9;
+        }
 
-  <style>
-  form {
-  border: 3px solid #f1f1f1;
-  }
+        form {
+            border: 3px solid #5DADE2;
+        }
 
-  /* Full-width inputs */
-  input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  }
+        /* Full-width inputs */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
 
-  /* Set a style for all buttons */
-  button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  }
+        /* Set a style for all buttons */
+        button {
+            background-color: #3498DB;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
 
-  /* Add a hover effect for buttons */
-  button:hover {
-  opacity: 0.8;
-  }
+        /* Add a hover effect for buttons */
+        button:hover {
+            opacity: 0.8;
+        }
 
-  /* Extra style for the cancel button (red) */
-  .cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-  }
+        /* Extra style for the cancel button (red) */
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+        }
 
-  /* Center the avatar image inside this container */
-  .imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-  }
+        /* Center the avatar image inside this container */
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
 
-  /* Avatar image */
-  img.avatar {
-  width: 40%;
-  border-radius: 50%;
-  }
+        /* Avatar image */
+        img.avatar {
+            width: 40%;
+            border-radius: 50%;
+        }
 
-  /* Add padding to containers */
-  .container {
-  padding: 16px;
-  }
+        /* Add padding to containers */
+        .container {
+            padding: 16px;
+        }
 
-  /* The "Forgot password" text */
-  span.psw {
-  float: right;
-  padding-top: 16px;
-  }
+        /* The "Forgot password" text */
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
 
-  /* Change styles for span and cancel button on extra small screens */
-  @media screen and (max-width: 300px) {
-  span.psw {
-  display: block;
-  float: none;
-  }
-  .cancelbtn {
-  width: 100%;
-  }
-  }
-  </style>
-  <script>
-      // Get the modal
-      var modal = document.getElementById('id01');
+        /* Change styles for span and cancel button on extra small screens */
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
 
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-          if (event.target == modal) {
-              modal.style.display = "none";
-          }
-      }
-  </script>
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+    </style>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+
+        function loginAndSaveOmrs() {
+            let omrsUser = document.getElementById('omrsUserField').value;
+            let omrsPass = document.getElementById('omrsPassField').value;
+            let omrsUrl = document.getElementById('omrsUrlField').value;
+
+            localStorage.setItem('omrsUser', omrsUser);
+            localStorage.setItem('omrsPass', omrsPass);
+            localStorage.setItem('omrsUrl', omrsUrl);
+        }
+
+        function loginAndSaveBahmni() {
+            let bahmniUser = document.getElementById('bahmniUserField').value;
+            let bahmniPass = document.getElementById('bahmniPassField').value;
+            let bahmniUrl = document.getElementById('bahmniUrlField').value;
+
+            localStorage.setItem('bahmniUser', bahmniUser);
+            localStorage.setItem('bahmniPass', bahmniPass);
+            localStorage.setItem('bahmniUrl', bahmniUrl);
+        }
+
+    </script>
