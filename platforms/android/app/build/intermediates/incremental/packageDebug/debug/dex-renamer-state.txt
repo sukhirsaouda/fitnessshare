@@ -1,4 +1,4 @@
-#Tue Jul 24 23:14:24 EDT 2018
+#Wed Jul 25 14:28:54 EDT 2018
 base.0=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 renamed.0=classes.dex
 file.0=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex

@@ -5,28 +5,28 @@
     <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
 <h1>Choose a physician with whom you would like to share your date</h1>
-<div>
-    <input type="checkbox" id="Name" name="Provider"
-           value="Name" checked />
-    <label for="Super User"></label>Super User </div>
-<div>
-    <input type="checkbox" id="Name" name="Provider"
-           value="Name" checked />
-    <label for="Jake Smith"></label>Jake Smith </div>
-<div>
-    <input type="checkbox" id="Name" name="Provider"
-           value="Calorie Intake" checked />
-    <label for="Jane Smith"></label>Jane Smith </div>
-<div>
-    <input type="checkbox" id="Name" name="Provider"
-           value="Sleep Activity" checked />
-    <label for="John Smith"></label>John Smith </div>
-<button onclick="myFunction()">Share</button>
-</body>
+<script>
+    function showprovider(str) {
+        var https://demo.openmrs.org/openmrs/admin/provider/index.htm;
+        if (str == "") {
+            document.getElementById("txtHint").innerHTML = "";
+            return;
+        }
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", "getprovider.asp?q="+str, true);
+        xhttp.send();
+    }
 
+</script>
 
 <style>
     button {
