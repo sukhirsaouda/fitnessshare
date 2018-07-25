@@ -24,21 +24,31 @@
     <input type="checkbox" id="Exercise" name="Activity"
            value="Sleep Activity" checked />
     <label for="Sleep Activity">Sleeo activity</label> </div>
-<button type="button">Share</button>
-</div>
-</div>
-<div class="popup" onclick="myFunction()">
-  <span class="popuptext" id="myPopup">Are you sure
-    Would you like to share your data from your device to openMRS</span></div>
-<div><button type=""button">Yes</button></div>
-<div><button type=""button">No</button></div>
 
+<button onclick="myFunction()">Share</button>
+</div>
+</div>
 </div>
 
 </body>
 <script>
     function myFunction() {
-        var popup = document.getElementById("myPopup");
-        popup.classList.toggle("show");
+        alert("Would you like to share your data from your device to openMRS");
     }
+
 </script>
+<style>
+    button {
+        background-color: #3498DB;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 25%;
+        position:relative;
+        left:20%;
+        right:20%;
+        bottom:5%;
+        top:60%;    }
+</style>

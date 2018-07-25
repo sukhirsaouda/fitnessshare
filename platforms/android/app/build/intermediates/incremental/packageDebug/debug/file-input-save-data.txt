@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Jul 18 15:45:11 EDT 2018
+#Tue Jul 24 23:14:25 EDT 2018
 5.base=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 42.base=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 32.set=ANDROID_RESOURCE
@@ -42,7 +42,7 @@
 31.file=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\drawable-port-ldpi-v4\\screen.png
 59.file=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\framework7\\css\\framework7.ios.min.css
 24.set=ASSET
-25.file=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\Secondpage.html
+25.file=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\framework7\\js\\framework7.js
 63.base=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_
 35.file=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\sixthpage.html
 13.set=ASSET
@@ -90,7 +90,7 @@ count=70
 56.file=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\Thirdpage.html
 7.set=ASSET
 45.set=ASSET
-22.file=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\js\\app.js
+22.file=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\Login.html
 32.file=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\mipmap-xxxhdpi-v4\\icon.png
 34.set=ASSET
 26.file=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\framework7\\css\\framework7.rtl.md.min.css
@@ -140,7 +140,7 @@ count=70
 66.set=ASSET
 57.file=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\fonts\\Framework7Icons-Regular.woff2
 55.set=ANDROID_RESOURCE
-23.file=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\pages\\product.html
+23.file=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\js\\app.js
 33.file=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\cordova-js-src\\android\\nativeapiprovider.js
 6.set=DEX
 17.file=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\drawable-land-mdpi-v4\\screen.png
@@ -199,7 +199,7 @@ count=70
 58.file=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\pages\\page-loader-template7.html
 14.set=ASSET
 65.set=ANDROID_RESOURCE
-24.file=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\framework7\\js\\framework7.js
+24.file=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\pages\\product.html
 62.base=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 34.file=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\Fifthpage.html
 18.file=C\:\\Users\\sunbiz\\Downloads\\fitnessshare\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\framework7\\css\\framework7.ios.css
