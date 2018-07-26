@@ -5,29 +5,12 @@
     <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>Choose a physician with whom you would like to share your date</h1>
-<script>
-    function showprovider(str) {
-        var https://demo.openmrs.org/openmrs/admin/provider/index.htm;
-        if (str == "") {
-            document.getElementById("txtHint").innerHTML = "";
-            return;
-        }
-        xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint").innerHTML = this.responseText;
-            }
-        };
-        xhttp.open("GET", "getprovider.asp?q="+str, true);
-        xhttp.send();
-    }
-
-</script>
-
 <style>
     button {
         background-color: #3498DB;
@@ -35,11 +18,29 @@
         padding: 14px 20px;
         margin: 8px 0;
         border: none;
-        cursor: pointer;
-        width: 25%;
-        position:relative;
-        left:20%;
-        right:20%;
-        bottom:5%;
-        top:60%;    }
+
 </style>
+<h1>Choose a physician with whom you would like to share your date</h1>
+<p><b>Provider Name:</b> <span id="A3"></span></p>
+<div id="checkboxDiv"></div>
+<button onclick="javascript:console.log('test')">Share</button>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: "https://demo.openmrs.org/openmrs/ws/rest/v1/provider",
+            headers: {
+                'Authorization': 'Basic ' + btoa(localStorage.omrsUser + ':' + localStorage.omrsPass)
+            },
+            xhrFields: {
+                withCredentials: true
+            },
+            success: function (data) {
+                for(let provider of data.results){
+                    $('#checkboxDiv').append('<input type="checkbox" value="' + provider.display + '"/>' +provider.display+ '<br/>');
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
