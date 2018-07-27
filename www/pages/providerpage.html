@@ -1,8 +1,4 @@
 <div class="page" data-name="provider">
-    <script
-            src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
     <div class="navbar">
         <div class="navbar-inner sliding">
             <div class="left">
@@ -28,29 +24,6 @@
         <p><b>Provider Name:</b> <span id="A3"></span></p>
         <div id="checkboxDiv"></div>
         <button onclick="javascript:console.log('test')">Share</button>
-        <script>
-            $(document).ready(function () {
-                $.ajax({
-                    url: "https://demo.openmrs.org/openmrs/ws/rest/v1/provider",
-                    headers: {
-                        'Authorization': 'Basic ' + btoa(localStorage.omrsUser + ':' + localStorage.omrsPass)
-                    },
-                    xhrFields: {
-                        withCredentials: true
-                    },
-                    success: function (data) {
-                        for(let provider of data.results){
-                            $('#checkboxDiv').append('<input type="checkbox" value="' + provider.display + '"/>' +provider.display+ '<br/>');
-                        }
-                    }
-                });
-            });
         </script>
     </div>
 </div>
-
-
-
-
-</body>
-</html>

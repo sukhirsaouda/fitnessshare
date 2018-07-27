@@ -51,3 +51,5 @@ fabric.properties
 bower_components
 .idea/
 node_modules
+platforms
+gen

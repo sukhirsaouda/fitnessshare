@@ -124,35 +124,3 @@
             }
         }
     </style>
-    <script>
-        // Get the modal
-        var modal = document.getElementById('id01');
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        };
-
-        function loginAndSaveOmrs() {
-            let omrsUser = document.getElementById('omrsUserField').value;
-            let omrsPass = document.getElementById('omrsPassField').value;
-            let omrsUrl = document.getElementById('omrsUrlField').value;
-
-            localStorage.setItem('omrsUser', omrsUser);
-            localStorage.setItem('omrsPass', omrsPass);
-            localStorage.setItem('omrsUrl', omrsUrl);
-        }
-
-        function loginAndSaveBahmni() {
-            let bahmniUser = document.getElementById('bahmniUserField').value;
-            let bahmniPass = document.getElementById('bahmniPassField').value;
-            let bahmniUrl = document.getElementById('bahmniUrlField').value;
-
-            localStorage.setItem('bahmniUser', bahmniUser);
-            localStorage.setItem('bahmniPass', bahmniPass);
-            localStorage.setItem('bahmniUrl', bahmniUrl);
-        }
-
-    </script>
