@@ -62,6 +62,24 @@ $$(document).on('page:init', '.page[data-name="provider"]', function (e) {
     });
 });
 
+$$(document).on('page:init', '.page[data-name="catalog"]', function (e) {
+    app.request({
+        url: 'https://api.fitbit.com/1/user/-/profile.json',
+        xhrFields: {
+            withCredentials: true
+        },
+        dataType:'json',
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('access_token');
+        },
+        success: function (data) {
+            /*for (let provider of data.results) {
+                $$('#checkboxDiv').append('<input type="checkbox" value="' + provider.display + '"/>' + provider.display + '<br/>');
+            }*/
+        }
+    });
+});
+
 function loginAndSaveOmrs() {
     let omrsUser = document.getElementById('omrsUserField').value;
     let omrsPass = document.getElementById('omrsPassField').value;
@@ -80,6 +98,26 @@ function loginAndSaveBahmni() {
     localStorage.setItem('bahmniUser', bahmniUser);
     localStorage.setItem('bahmniPass', bahmniPass);
     localStorage.setItem('bahmniUrl', bahmniUrl);
+}
+
+function doFitbitOAuth() {
+    var endUrl = "https://fitnessshare.ashwini/authCallback";
+    var startUrl = "https://www.fitbit.com/oauth2/authorize?response_type=token&client_id=22CXLF&redirect_uri=https%3A%2F%2Ffitnessshare.ashwini%2FauthCallback&scope=activity%20heartrate%20nutrition%20sleep%20weight&expires_in=31536000";
+
+    var browser = cordova.InAppBrowser.open(startUrl, '_blank', 'location=yes');
+    browser.addEventListener('loadstart', function(evt){
+        if(evt.url.indexOf(endUrl) == 0) {
+            // close the browser, we are done!
+            var url_string = evt.url.replace('#', '?');
+            var url = new URL(url_string);
+            var access_token = url.searchParams.get("access_token");
+            localStorage.setItem('access_token', access_token);
+            browser.close();
+        }
+    });
+    browser.addEventListener('loaderror', function(err) {
+        console.log("error " + err);
+    });
 }
 
 // Init/Create views
