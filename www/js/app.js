@@ -50,7 +50,7 @@ $$(document).on('page:init', '.page[data-name="provider"]', function (e) {
         xhrFields: {
             withCredentials: true
         },
-        dataType:'json',
+        dataType: 'json',
         headers: {
             'Authorization': 'Basic ' + btoa(localStorage.omrsUser + ':' + localStorage.omrsPass)
         },
@@ -63,22 +63,39 @@ $$(document).on('page:init', '.page[data-name="provider"]', function (e) {
 });
 
 $$(document).on('page:init', '.page[data-name="catalog"]', function (e) {
+    var calendarModal = app.calendar.create({
+        inputEl: '#demo-calendar-modal',
+        openIn: 'customModal',
+        header: true,
+        footer: true,
+        dateFormat: 'yyyy-mm-dd',
+        rangePicker: true,
+        closeOnSelect: true
+    });
+});
+
+function getFitbitData() {
+    var dates = $$('#demo-calendar-modal').val().split(' - ');
     app.request({
-        url: 'https://api.fitbit.com/1/user/-/profile.json',
+        url: 'https://api.fitbit.com/1/user/-/body/log/weight/date/' + dates[0] + '/' + dates[1] +'.json',
         xhrFields: {
             withCredentials: true
         },
-        dataType:'json',
+        dataType: 'json',
         headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('access_token');
+            'Authorization': 'Bearer ' + localStorage.getItem('access_token')
         },
         success: function (data) {
-            /*for (let provider of data.results) {
-                $$('#checkboxDiv').append('<input type="checkbox" value="' + provider.display + '"/>' + provider.display + '<br/>');
-            }*/
+            localStorage.setItem('weight', JSON.stringify(data.weight));
+            $$('#dataDiv').html('');
+            for (let weight of data.weight) {
+                $$('#dataDiv').append('BMI = ' + weight.bmi + '<br/>');
+                $$('#dataDiv').append('Date/Time = ' + weight.date + ' ' + weight.time + '<br/>');
+                $$('#dataDiv').append('Weight = ' + weight.weight);
+            }
         }
     });
-});
+}
 
 function loginAndSaveOmrs() {
     let omrsUser = document.getElementById('omrsUserField').value;
@@ -105,17 +122,18 @@ function doFitbitOAuth() {
     var startUrl = "https://www.fitbit.com/oauth2/authorize?response_type=token&client_id=22CXLF&redirect_uri=https%3A%2F%2Ffitnessshare.ashwini%2FauthCallback&scope=activity%20heartrate%20nutrition%20sleep%20weight&expires_in=31536000";
 
     var browser = cordova.InAppBrowser.open(startUrl, '_blank', 'location=yes');
-    browser.addEventListener('loadstart', function(evt){
-        if(evt.url.indexOf(endUrl) == 0) {
+    browser.addEventListener('loadstart', function (evt) {
+        if (evt.url.indexOf(endUrl) == 0) {
             // close the browser, we are done!
             var url_string = evt.url.replace('#', '?');
             var url = new URL(url_string);
             var access_token = url.searchParams.get("access_token");
             localStorage.setItem('access_token', access_token);
+            console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>' + localStorage.getItem('access_token'));
             browser.close();
         }
     });
-    browser.addEventListener('loaderror', function(err) {
+    browser.addEventListener('loaderror', function (err) {
         console.log("error " + err);
     });
 }
