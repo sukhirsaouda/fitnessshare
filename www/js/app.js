@@ -78,6 +78,9 @@ function getFitbitData() {
     var dates = $$('#demo-calendar-modal').val().split(' - ');
     app.request({
         url: 'https://api.fitbit.com/1/user/-/body/log/weight/date/' + dates[0] + '/' + dates[1] +'.json',
+        url: 'https://api.fitbit.com/1.2/user/-/sleep/date/' + dates[0] + '/' + dates[1] +'.json',
+        url: 'https://api.fitbit.com/1/user/-/activities/steps/date/today/' + dates[0] + '/' + dates[1] +'.json',
+        url: 'https://api.fitbit.com/1/user/-/foods/log/caloriesIn/date/' + dates[0] + '/' + dates[1] +'.json',
         xhrFields: {
             withCredentials: true
         },
@@ -87,11 +90,23 @@ function getFitbitData() {
         },
         success: function (data) {
             localStorage.setItem('weight', JSON.stringify(data.weight));
+            localStorage.setItem('sleep', JSON.stringify(data.sleep));
+            localStorage.setItem('steps', JSON.stringify(data.steps));
+            localStorage.setItem('caloriesIn', JSON.stringify(data.caloriesIn));
             $$('#dataDiv').html('');
             for (let weight of data.weight) {
                 $$('#dataDiv').append('BMI = ' + weight.bmi + '<br/>');
                 $$('#dataDiv').append('Date/Time = ' + weight.date + ' ' + weight.time + '<br/>');
                 $$('#dataDiv').append('Weight = ' + weight.weight);
+                $$('#dataDiv').append('Activity = ' + steps.bmi + '<br/>');
+                $$('#dataDiv').append('Date/Time = ' + steps.date + ' ' + sleep.time + '<br/>');
+                $$('#dataDiv').append('Activity = ' + steps.steps);
+                $$('#dataDiv').append('sleep = ' + sleep.sleep + '<br/>');
+                $$('#dataDiv').append('Date/Time = ' + sleep.date + ' ' + sleep.time + '<br/>');
+                $$('#dataDiv').append('Sleep = ' + sleep.sleep);
+                $$('#dataDiv').append('Intake = ' + Calories.Intake + '<br/>');
+                $$('#dataDiv').append('Date/Time = ' + calories.date + ' ' + calories.time + '<br/>');
+                $$('#dataDiv').append('Weight = ' + calories.calories);
             }
         }
     });

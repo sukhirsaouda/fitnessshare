@@ -9,6 +9,9 @@ routes = [
     }, {
         path: '/provider/',
         url: './pages/providerpage.html',
+    },{
+        path: '/patientdetails/',
+        url: './pages/patientdetailspage.html',
     },
     {
         path: '/catalog/',
@@ -70,7 +73,7 @@ routes = [
                 // Resolve route to load page
                 resolve(
                     {
-                        componentUrl: './pages/request-and-load.html',
+                        componentUrl: './pages/patientdetailspage.html',
                     },
                     {
                         context: {

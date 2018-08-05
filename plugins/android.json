@@ -7,8 +7,11 @@
     "files": {}
   },
   "installed_plugins": {
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "edu.iupui.soic.bhi.ashwini"
+    },
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.iupui.ashwini"
+      "PACKAGE_NAME": "edu.iupui.soic.bhi.ashwini"
     }
   },
   "dependent_plugins": {}
